@@ -1,0 +1,24 @@
+@if (isAddingTask) {
+<app-add-task [userId]="userId" (close)="onCloseAddTask()" />
+}
+
+<section>
+  <header>
+    <h2> {{ nameOfUser }}'s Tasks</h2>
+    <menu>
+      <button (click)="onStartAddTask()">Add Task</button>
+    </menu>
+  </header>
+
+  <ul>
+    <li *ngFor="let task of selectedUserTasks">
+      <!-- <app-task *ngIf="selectedUserTasks; else fallback"/> -->
+      <!-- <app-task [task]="task" (complete)="onCompleteTask($event)" /> -->
+      <app-task [task]="task" />
+    </li>
+    <!-- <ng-template #fallback>
+      <p>No remaining tasks left for {{ nameOfUser }}</p>
+    </ng-template> -->
+  </ul>
+
+</section>
